@@ -1,0 +1,11 @@
+C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-and-React\Ecommerce\Core\bin\Debug\net5.0\Core.deps.json
+C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-and-React\Ecommerce\Core\bin\Debug\net5.0\Core.dll
+C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-and-React\Ecommerce\Core\bin\Debug\net5.0\ref\Core.dll
+C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-and-React\Ecommerce\Core\bin\Debug\net5.0\Core.pdb
+C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-and-React\Ecommerce\Core\obj\Debug\net5.0\Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-and-React\Ecommerce\Core\obj\Debug\net5.0\Core.AssemblyInfoInputs.cache
+C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-and-React\Ecommerce\Core\obj\Debug\net5.0\Core.AssemblyInfo.cs
+C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-and-React\Ecommerce\Core\obj\Debug\net5.0\Core.csproj.CoreCompileInputs.cache
+C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-and-React\Ecommerce\Core\obj\Debug\net5.0\Core.dll
+C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-and-React\Ecommerce\Core\obj\Debug\net5.0\ref\Core.dll
+C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-and-React\Ecommerce\Core\obj\Debug\net5.0\Core.pdb

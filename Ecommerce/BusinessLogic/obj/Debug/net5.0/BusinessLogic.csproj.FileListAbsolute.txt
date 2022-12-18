@@ -1,0 +1,15 @@
+C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-and-React\Ecommerce\BusinessLogic\bin\Debug\net5.0\BusinessLogic.deps.json
+C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-and-React\Ecommerce\BusinessLogic\bin\Debug\net5.0\BusinessLogic.dll
+C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-and-React\Ecommerce\BusinessLogic\bin\Debug\net5.0\ref\BusinessLogic.dll
+C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-and-React\Ecommerce\BusinessLogic\bin\Debug\net5.0\BusinessLogic.pdb
+C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-and-React\Ecommerce\BusinessLogic\bin\Debug\net5.0\Core.dll
+C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-and-React\Ecommerce\BusinessLogic\bin\Debug\net5.0\Core.pdb
+C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-and-React\Ecommerce\BusinessLogic\obj\Debug\net5.0\BusinessLogic.csprojAssemblyReference.cache
+C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-and-React\Ecommerce\BusinessLogic\obj\Debug\net5.0\BusinessLogic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-and-React\Ecommerce\BusinessLogic\obj\Debug\net5.0\BusinessLogic.AssemblyInfoInputs.cache
+C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-and-React\Ecommerce\BusinessLogic\obj\Debug\net5.0\BusinessLogic.AssemblyInfo.cs
+C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-and-React\Ecommerce\BusinessLogic\obj\Debug\net5.0\BusinessLogic.csproj.CoreCompileInputs.cache
+C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-and-React\Ecommerce\BusinessLogic\obj\Debug\net5.0\BusinessLogic.csproj.CopyComplete
+C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-and-React\Ecommerce\BusinessLogic\obj\Debug\net5.0\BusinessLogic.dll
+C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-and-React\Ecommerce\BusinessLogic\obj\Debug\net5.0\ref\BusinessLogic.dll
+C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-and-React\Ecommerce\BusinessLogic\obj\Debug\net5.0\BusinessLogic.pdb

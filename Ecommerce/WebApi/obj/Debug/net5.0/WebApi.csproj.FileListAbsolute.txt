@@ -63,3 +63,5 @@ C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-
 C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-and-React\Ecommerce\WebApi\bin\Debug\net5.0\Humanizer.dll
 C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-and-React\Ecommerce\WebApi\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-and-React\Ecommerce\WebApi\obj\Debug\net5.0\WebApi.csprojAssemblyReference.cache
+C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-and-React\Ecommerce\WebApi\bin\Debug\net5.0\AutoMapper.dll
+C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-and-React\Ecommerce\WebApi\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

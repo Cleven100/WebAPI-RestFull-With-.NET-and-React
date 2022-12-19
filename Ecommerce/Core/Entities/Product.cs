@@ -9,7 +9,7 @@ namespace Core.Entities
 {
     public class Product : ClassBase
     {
-       
+
 
         public string Name { get; set; }
         public string Description { get; set; }
@@ -24,8 +24,7 @@ namespace Core.Entities
         public Category Category { get; set; }
 
 
-        
-        public decimal price { get; set; }
+        public decimal Price { get; set; }
 
         public string Image { get; set; }
     }

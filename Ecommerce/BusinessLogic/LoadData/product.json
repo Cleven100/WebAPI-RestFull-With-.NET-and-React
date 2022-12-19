@@ -1,0 +1,56 @@
+[
+  {
+    "Name": "Coat",
+    "Description": "casual coat for events",
+    "Stock": 100,
+    "BrandId": 1,
+    "CategoryId": 1,
+    "Price": 120,
+    "Image": ""
+  },
+  {
+    "Name": "Pantaladon",
+    "Description": "casual coat for events",
+    "Stock": 100,
+    "BrandId": 2,
+    "CategoryId": 2,
+    "Price": 120,
+    "Image": ""
+  },
+  {
+    "Name": "Pantalodasdafn",
+    "Description": "casual coat for events",
+    "Stock": 100,
+    "BrandId": 3,
+    "CategoryId": 3,
+    "Price": 120,
+    "Image": ""
+  },
+  {
+    "Name": "Pantalodfsfn",
+    "Description": "casual coat for events",
+    "Stock": 100,
+    "BrandId": 4,
+    "CategoryId": 4,
+    "Price": 120,
+    "Image": ""
+  },
+  {
+    "Name": "Pantalonsdfsdbdgh",
+    "Description": "casual coat for events",
+    "Stock": 100,
+    "BrandId": 5,
+    "CategoryId": 5,
+    "Price": 120,
+    "Image": ""
+  },
+  {
+    "Name": "Pantalonfghdfhg",
+    "Description": "casual coat for events",
+    "Stock": 100,
+    "BrandId": 6,
+    "CategoryId": 6,
+    "Price": 120,
+    "Image": ""
+  }
+]

@@ -17,9 +17,10 @@ namespace BusinessLogic.Data.Config
             builder.Property(p => p.Description).IsRequired().HasMaxLength(500);
             builder.Property(p => p.Image).IsRequired().HasMaxLength(1000);
 
-            builder.Property(p => p.price).HasColumnType("decimal(18,2)");
+            builder.Property(p => p.Price).HasColumnType("decimal(18,2)");
             builder.HasOne(m => m.Brand).WithMany().HasForeignKey(p => p.BrandId);
             builder.HasOne(c => c.Category).WithMany().HasForeignKey(p => p.CategoryId);
         }
     }
 }
+ 

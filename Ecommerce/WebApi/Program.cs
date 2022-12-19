@@ -26,6 +26,7 @@ namespace WebApi
                 {
                     var context = services.GetRequiredService<EcommerceDbContext>();
                     await context.Database.MigrateAsync();
+                    await EcommerceDbContextData.loadDataAsync(context, loggerFactory);
                 }
                 catch (Exception e)
                 {

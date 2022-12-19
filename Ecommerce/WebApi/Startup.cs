@@ -53,6 +53,8 @@ namespace WebApi
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseStatusCodePagesWithReExecute("/erros", "?code={0}");
+
             app.UseRouting();
 
             app.UseAuthorization();

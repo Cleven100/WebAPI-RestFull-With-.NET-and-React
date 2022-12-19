@@ -9,9 +9,8 @@ using System.Threading.Tasks;
 
 namespace WebApi.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class BrandController : ControllerBase
+    
+    public class BrandController : BaseApiController
     {
         private readonly IGenericRepository<Brand> _brandRepository;
 

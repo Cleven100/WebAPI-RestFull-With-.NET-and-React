@@ -4,12 +4,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApi.Erros;
 
 namespace WebApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("errors")]
     [ApiController]
-    public class ErrorController : ControllerBase
+    public class ErrorController : BaseApiController
     {
+        public IActionResult Error(int code)
+        {
+            return new ObjectResult(new CodeErrorResponse(code));
+        }
     }
 }

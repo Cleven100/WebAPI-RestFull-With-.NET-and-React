@@ -11,5 +11,7 @@ namespace WebApi.Controllers
     [ApiController]
     public class BaseApiController : ControllerBase
     {
+        
+
     }
 }

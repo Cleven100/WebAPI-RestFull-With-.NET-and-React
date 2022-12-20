@@ -28,9 +28,9 @@ namespace WebApi.Controllers
 
 
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<Product>>> GetBrandAll()
+        public async Task<ActionResult<IReadOnlyList<Product>>> GetProducts(string sort, int? brand, int? category)
         {
-            var spec = new ProductWithCategoryAndBrandSpecification();
+            var spec = new ProductWithCategoryAndBrandSpecification(sort, brand, category);
 
             var products = (await _productRepository.GetAllWithSpec(spec));
 

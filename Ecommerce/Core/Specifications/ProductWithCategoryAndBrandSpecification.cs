@@ -14,6 +14,7 @@ namespace Core.Specifications
         {
             AddInclude(p => p.Category);
             AddInclude(p => p.Brand);
+            AddOrderBy(p => p.Price);
         }
 
         public ProductWithCategoryAndBrandSpecification(int id) : base(x => x.Id == id)

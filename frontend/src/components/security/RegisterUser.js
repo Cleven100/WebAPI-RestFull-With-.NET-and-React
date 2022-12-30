@@ -1,6 +1,7 @@
 import React from 'react'
-import { Avatar, Container, Grid, Icon, Card, makeStyles, Typography, TextField, Button, Link} from '@material-ui/core';
+import { Avatar, Container, Grid, Icon, Card, makeStyles, Typography, TextField, Button} from '@material-ui/core';
 import "./Login.css"
+import { Link } from 'react-router-dom';
 
 
  const useStyles = makeStyles({
@@ -49,6 +50,25 @@ import "./Login.css"
         gridmb: {
           marginBotoom: 20
         },
+        links: {
+          width: "100%",
+          display: "inherit",
+          alignItems: "inherit",
+          justifycontent: "inherit",
+        color: "rgba(0, 0, 0, 0.87)",
+        padding: "6px 16px",
+        fontSize: "0.875rem",
+        minWidth: "64px",
+        boxSizing: "border-box",
+        transition: "background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
+        fontFamily: "Roboto",
+        fontWeight: 500,
+        lineHeight: 1.75,
+        borderRadius: "4px",
+        letterSpacing: "0.02857em",
+        textTransform: "uppercase",
+        textDecoration: "none",
+        }
        
  })
 export default function RegisterUser() {
@@ -118,14 +138,13 @@ export default function RegisterUser() {
                            <p style={{visibility: "hidden"}}> P </p>
                            
                         </Grid>
-                        <Link
-                         href=""
-                         variant="body1"
-                         className={classes.link}
-                        >
-                          Forgot Password?
-                        </Link>
-                    
+
+                        <Link 
+                            to="/login"
+                            className={classes.links}>
+                            Forgot Password?
+                            </Link>
+                      
                     </form>
                     
                     

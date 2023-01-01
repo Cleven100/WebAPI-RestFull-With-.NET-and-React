@@ -4,6 +4,7 @@ import RegisterUser from './components/security/RegisterUser';
 import MenuAppBar from './components/navigation/MenuAppBar';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import home from './components/teste/home';
+import Book from './components/views/Book';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
           
           <Route exact path="/login" component={Login} />
           <Route path="/register" component={RegisterUser} />
+          <Route path="/" component={Book} />
 
          </Switch>
       </Router>

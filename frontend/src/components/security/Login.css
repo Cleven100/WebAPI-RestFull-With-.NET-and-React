@@ -1,3 +1,19 @@
 body {
     background-color: #d3d3d3;
 }
+.icon {
+    font-size: 50px !important;  
+}
+
+.avatar {
+    background-color: #dedede ;
+      color: #000 !important;
+      width: 80px !important;
+      height: 80px !important;
+      transition: 1s;
+      
+}
+.avatar:hover {
+    background-color: #f27b9b !important;
+}
+ 

@@ -2,19 +2,14 @@ import { AppBar, Toolbar, Container, Icon, Typography, makeStyles, Button, IconB
 import { createMuiTheme } from '@material-ui/core/styles'
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
+import "./MenuAppBar.css"
 
 
 const  theme = createMuiTheme();
 
 
 const useStyles = makeStyles ({
-    container : { 
-        color: "#DEDEDE",
-        background: "#6a6a6a",
-        borderRadius: 5,
-        
-
-    },
+   
     toolbar : {
         justifyContent: "space-between"
     },
@@ -47,7 +42,7 @@ const useStyles = makeStyles ({
   alignItems: "inherit",
   justifycontent: "inherit",
 color: "rgba(0, 0, 0, 0.87)",
-padding: "6px 16px",
+padding: "16px 32px",
 fontSize: "0.875rem",
 minWidth: "64px",
 boxSizing: "border-box",
@@ -114,6 +109,9 @@ textDecoration: "none",
       textTransform: "uppercase",
       textDecoration: "none",
 
+    },
+    loginss: {
+       height: 100,
     }
 
 })
@@ -134,9 +132,12 @@ const classes = useStyles();
   return (
     
     <div>
-        <AppBar position="static"  className={classes.container}>
-           <Container  >
-                  
+        <AppBar position="static"  className="appbar">
+
+
+
+           <Container  className="containerrr">
+           
               <Toolbar className={classes.toolbar}>
                   <div className={classes.sectionMobile}>
                      <IconButton color="inherit" onClick={openToggle}>
@@ -163,22 +164,34 @@ const classes = useStyles();
                      </div>
                   </Drawer>
                   <div className={classes.logo}>
-                    <Icon className={classes.icons} fontSize="large">store</Icon>
-                     <Link to="/"  className={classes.logoName}>
-                         <Typography variant="h5">Cleven Shop</Typography>
-                    </Link>
+                    
+                    <div className='background-one'>
+                        <div className='link-container'>
+
+                            <Link to="/"  className="link-one">
+                           <Typography variant="h5">CNShop</Typography>
+                       </Link>
+                        </div>
+                        
+                    </div>
+                     
                   </div>
                   <div className={classes.sectionDesktop}>
-                    
-                    <div className={classes.login}>
+                    <div className='background-two link-container'>
+                        <div className='link-two'>
+                           <div className={classes.login}>
                         <Icon className={classes.alin}>person</Icon>
                          <Link to="/login" className={classes.logins}>
                             Login
                          </Link>
                          </div>
+                        </div>
+                    </div>
+                    
                     
                   </div>
               </Toolbar>
+              
            </Container>
         </AppBar>
     </div>

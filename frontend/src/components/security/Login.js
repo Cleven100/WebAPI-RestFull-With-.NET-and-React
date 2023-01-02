@@ -12,15 +12,6 @@ const useStyles = makeStyles({
      padding: 60,
     
     },
-    avatar: {
-     backgroundColor: '#d3d3d3',
-     color: "#000",
-      width: 80,
-      height: 80
-    },
-    icon: {
-     fontSize: 60
-    },
     enter: {
      backgroundColor: '#94b447'
     },
@@ -70,11 +61,13 @@ export default function Login() {
   return (
     <div>
         <Container className={classes.containermet}>
-           <Grid container justify="center">
+           <Grid container justify="center" >
              <Grid item lg={5} md={6}>
+               
                 <Card className={classes.card} align="center">
-                    <Avatar className={classes.avatar}>
-                        <Icon className={classes.icon}>person</Icon>
+                  
+                    <Avatar className="avatar">
+                        <Icon className="icon">person</Icon>
                     </Avatar>
                    <Typography className={classes.typography} variant="h5" color="">Enter username</Typography>
                    <form className={classes.form}>
@@ -120,6 +113,8 @@ export default function Login() {
                      </Link >
                    </form>
                 </Card>
+               
+                
              </Grid>
            </Grid>
         </Container>

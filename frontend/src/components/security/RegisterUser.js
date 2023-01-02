@@ -13,7 +13,7 @@ const clearUser = {
 
 }
 
- const useStyles = makeStyles({
+const useStyles = makeStyles({
   containermet: {
     marginTop: 70
    
@@ -35,10 +35,10 @@ const clearUser = {
    backgroundColor: '#94b447'
   },
   button: {
-   background: '#d3d3d3',
-   
-   
-  },
+    background: '#d3d3d3',
+    
+    
+   },
   input: {
    background: '#d3d3d3',
    borderRadius: 5,
@@ -104,7 +104,7 @@ export default function RegisterUser() {
   }
 
 
-    const classes = useStyles();
+  const classes = useStyles();
   return (
     <div>
         <Container className={classes.containermet}>

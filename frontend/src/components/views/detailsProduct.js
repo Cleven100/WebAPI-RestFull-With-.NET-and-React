@@ -73,12 +73,43 @@ const useStyles = makeStyles({
         backgroundColor: "#FFF" ,
         
 
-      }
+      },
+      buttons : {
+        width: "100%",
+        display: "inherit",
+        alignItems: "inherit",
+        justifycontent: "inherit",
+       border: "1px solid #2f2f2f",
+       background: "#2f2f2f",
+       color: "#f27b9b",
+       '&:hover': {
+        transition: "0.3s",
+        background: "#2f2f2f",
+        color: "#f27b9b",
+      },
+      padding: "6px 125px",
+      fontSize: "0.875rem",
+      minWidth: "64px",
+      boxSizing: "border-box",
+      transition: "background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
+      fontFamily: "Roboto",
+      fontWeight: 500,
+      lineHeight: 1.75,
+      borderRadius: "4px",
+      letterSpacing: "0.02857em",
+      textTransform: "uppercase",
+      textDecoration: "none",
+    }
            
 })
 
 
-const DetailsProduct = () => {
+const DetailsProduct = (props) => {
+ 
+    const addCart = () => {
+        props.history.push("/cart")
+    }
+
     const classes = useStyles();
     return (
         <Container className={classes.containermet}>
@@ -142,9 +173,11 @@ const DetailsProduct = () => {
                             <TableRow>
                                 <TableCell colSpan={2}>
                                     <Button 
+                                    className={classes.buttons}
                                      variant="contained"
                                      size="large"
                                      fullWidth
+                                     onClick={addCart}
                                     >
                                         Add to cart
                                     </Button>

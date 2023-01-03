@@ -3,6 +3,10 @@ import { createMuiTheme } from '@material-ui/core/styles'
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import "./MenuAppBar.css"
+import MenuAdmin from './desktop/MenuAdmin';
+import MenuClient from './desktop/MenuClient';
+import MenuMobile from './mobile/MenuMobile';
+import MenuMobilePublic from './mobile/MenuMobilePublic';
 
 
 const  theme = createMuiTheme();
@@ -150,16 +154,8 @@ const classes = useStyles();
                   >
                      <div className={classes.list}>
                         <List>
-                             <ListItem button onClick={closeToggle} className={classes.listItem}>
-                                <Link  to="/login" className={classes.links}>
-                                    <ListItemIcon className={classes.listIcon}>
-                                        <Icon>person</Icon>
-                                    </ListItemIcon>
-                                    <ListItemText>
-                                        Login
-                                    </ListItemText>
-                                </Link >
-                             </ListItem>
+                            
+                          <MenuMobile />
                         </List>
                      </div>
                   </Drawer>
@@ -177,17 +173,21 @@ const classes = useStyles();
                      
                   </div>
                   <div className={classes.sectionDesktop}>
-                    <div className='background-two link-container'>
+                {/*  <div className='background-two link-container'>
                         <div className='link-two'>
                            <div className={classes.login}>
                         <Icon className={classes.alin}>person</Icon>
                          <Link to="/login" className={classes.logins}>
                             Login
-                         </Link>
-                         </div>
-                        </div>
-                    </div>
-                    
+                         </Link> 
+                      </div> 
+                       
+                      </div> 
+                     
+                     
+                   </div> */ }
+                    <MenuClient />
+                    <MenuAdmin />
                     
                   </div>
               </Toolbar>

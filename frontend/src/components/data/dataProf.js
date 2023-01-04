@@ -1,77 +1,88 @@
 export const productArray = [
     {
-        key: 1,
+        key: "ADASDAS-ASDASDASD",
         title: "nike",
         price: 39.99,
-        image: ""
+        image: "",
+        brand: "CNS"
     },
     {
-        key: 2,
+        key: "ADASDAS-ASDASDASDs",
         title: "Mizunu",
         price: 19.99,
-        image: ""
+        image: "",
+        brand: "CNS"
     },
     {
-        key: 3,
+        key: "ADASDAS-ASDASDASDa",
         title: "Asics",
         price: 99.99,
-        image: ""
+        image: "",
+        brand: "CNS"
     },
  
     {
-        key: 4,
+        key: "ADASDAS-ASDASDASDec",
         title: "nike",
         price: 49.99,
-        image: ""
+        image: "",
+        brand: "CNS"
     },
  
     {
-        key: 5,
+        key: "ADASDAS-ASDASDASDSD",
+        title: "nike",
+        price: 89.99,
+        image: "",
+        brand: "CNS"
+    },
+    {
+        key: "ADASDAS-ASDASDASDjtg",
         title: "nike",
         price: 89.99,
         image: ""
     },
     {
-        key: 5,
+        key: "ADASDAS-ASDASDASdada",
         title: "nike",
         price: 89.99,
-        image: ""
+        image: "",
+        brand: "CNS"
+    },
+    {
+        key: "ADASDAS-ASDASDASDTTDV",
+        title: "nike",
+        price: 89.99,
+        image: "",
+        brand: "CNS"
+    },
+    {
+        key: "ADASDAS-ASDASDASDGN",
+        title: "nike",
+        price: 89.99,
+        image: "",
+        brand: "CNS"
     },
     {
         key: 5,
         title: "nike",
         price: 89.99,
-        image: ""
+        image: "",
+        brand: "CNS"
     },
     {
         key: 5,
         title: "nike",
         price: 89.99,
-        image: ""
+        image: "",
+        brand: "CNS"
     },
     {
         key: 5,
         title: "nike",
         price: 89.99,
-        image: ""
-    },
-    {
-        key: 5,
-        title: "nike",
-        price: 89.99,
-        image: ""
-    },
-    {
-        key: 5,
-        title: "nike",
-        price: 89.99,
-        image: ""
-    },
-    {
-        key: 5,
-        title: "nike",
-        price: 89.99,
-        image: ""
+        image: "",
+        brand: "CNS"
     },
  
    

@@ -1,18 +1,20 @@
-import { Button, CardMedia, Container, Divider, Grid, Paper, Table, TableBody, TableCell, 
-    TableContainer, TableRow, Typography } from '@material-ui/core';
+import {
+    Button, CardMedia, Container, Divider, Grid, Paper, Table, TableBody, TableCell,
+    TableContainer, TableRow, Typography
+} from '@material-ui/core';
 import React from 'react';
 import useStyles from '../theme/useStyles';
 
 const Order = (props) => {
-    const {id} = props.match.params;
-    const pushMessage = "Delivering";
+    const { id } = props.match.params;
+    const pushMessage = "no Delivering";
     const paidMessage = "paid";
     const classes = useStyles();
     return (
-        
+
         <Container className={classes.containermt}>
             <Typography variant="h5" className={classes.text_title}>
-                Order: {id.toUpperCase()} 
+                Order: {id.toUpperCase()}
             </Typography>
             <Grid container spacing={2} className={classes.paperPadding}>
                 <Grid item md={8} xs={12}>
@@ -28,14 +30,14 @@ const Order = (props) => {
                     <Typography variant="body2" className={classes.text_envio}>
                         Address: new york
                     </Typography>
-                    <div className={classes.alertDelivered}>
+                    <div className={classes.alertNotDelivered}>
                         <Typography variant="body2" className={classes.text_title}>
                             {pushMessage}
                         </Typography>
                     </div>
-                    <Divider className={classes.divider}/>
+                    <Divider className={classes.divider} />
                     <Typography variant="h6" className={classes.text_title}>
-                    Payment Method
+                        Payment Method
                     </Typography>
                     <Typography>
                         Method: PayPal
@@ -45,7 +47,7 @@ const Order = (props) => {
                             {paidMessage}
                         </Typography>
                     </div>
-                    <Divider className={classes.divider}/>
+                    <Divider className={classes.divider} />
                     <Typography variant="h6" className={classes.text_title}>
                         PRODUCTS
                     </Typography>
@@ -54,11 +56,11 @@ const Order = (props) => {
                             <TableBody>
                                 <TableRow>
                                     <TableCell>
-                                    <CardMedia 
-                                    className={classes.imgProductoPC}
-                                    image=""
-                                    title=""
-                                    />
+                                        <CardMedia
+                                            className={classes.imgProductoPC}
+                                            image=""
+                                            title=""
+                                        />
                                     </TableCell>
                                     <TableCell>
                                         <Typography className={classes.text_detalle}>
@@ -75,7 +77,7 @@ const Order = (props) => {
                         </Table>
                     </TableContainer>
                 </Grid>
-            
+
                 <Grid item md={4} xs={12}>
                     <TableContainer component={Paper} square>
                         <Table>
@@ -137,7 +139,7 @@ const Order = (props) => {
                                 </TableRow>
                                 <TableRow>
                                     <TableCell colSpan={2}>
-                                        <Button
+                                        { /*  <Button
                                         variant="contained"
                                         color="primary"
                                         size="large"
@@ -152,7 +154,17 @@ const Order = (props) => {
                                         fullWidth
                                         >
                                            credit card
-                                        </Button>
+                                     </Button> */}
+                                     
+                                       <Button
+                                        variant="contained"
+                                        color="primary"
+                                        size="large"
+                                        fullWidth
+                                        
+                                       >
+                                       mark as delivered
+                                       </Button>
                                     </TableCell>
                                 </TableRow>
                             </TableBody>

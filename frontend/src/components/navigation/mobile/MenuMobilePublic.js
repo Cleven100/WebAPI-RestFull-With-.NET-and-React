@@ -17,7 +17,7 @@ const MenuMobilePublic = (props) => {
                 </Link>
             </ListItem>
             <ListItem button onClick={props.clickHandler} className={classes.listItem}>
-                <Link className={classes.linkAppBarMobile} to="/carrito">
+                <Link className={classes.linkAppBarMobile} to="/cart">
                     <ListItemIcon className={classes.listItemIcon}>
                         <Icon>shopping_cart</Icon>
                     </ListItemIcon>

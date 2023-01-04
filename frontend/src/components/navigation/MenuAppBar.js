@@ -7,6 +7,8 @@ import MenuAdmin from './desktop/MenuAdmin';
 import MenuClient from './desktop/MenuClient';
 import MenuMobile from './mobile/MenuMobile';
 import MenuMobilePublic from './mobile/MenuMobilePublic';
+import MenuPublic from './desktop/MenuPublic';
+
 
 
 const  theme = createMuiTheme();
@@ -154,14 +156,14 @@ const classes = useStyles();
                   >
                      <div className={classes.list}>
                         <List>
-                            
-                          <MenuMobile />
+                        {/* <MenuMobilePublic clickHandler={closeToggle}/> */}
+                           <MenuMobile  clickHandler={closeToggle}/>
                         </List>
                      </div>
                   </Drawer>
                   <div className={classes.logo}>
                     
-                    <div className='background-one'>
+                  <div className='background-one'>
                         <div className='link-container'>
 
                             <Link to="/"  className="link-one">
@@ -173,21 +175,9 @@ const classes = useStyles();
                      
                   </div>
                   <div className={classes.sectionDesktop}>
-                {/*  <div className='background-two link-container'>
-                        <div className='link-two'>
-                           <div className={classes.login}>
-                        <Icon className={classes.alin}>person</Icon>
-                         <Link to="/login" className={classes.logins}>
-                            Login
-                         </Link> 
-                      </div> 
-                       
-                      </div> 
-                     
-                     
-                   </div> */ }
-                    <MenuClient />
-                    <MenuAdmin />
+                   {/*    <MenuPublic /> */}
+                       <MenuClient />
+                       <MenuAdmin /> 
                     
                   </div>
               </Toolbar>

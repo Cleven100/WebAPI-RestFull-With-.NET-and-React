@@ -2,8 +2,17 @@ import React from 'react'
 import useStyles from '../../theme/useStyles'
 import { Button, Container, Icon, Table, TableBody, TableCell, TableContainer, TableRow, Typography } from '@material-ui/core';
 
-function User() {
+function User(props) {
     const classes = useStyles();
+
+ const editUSer = () => {
+    const id = "SDASD-545ASDAS-878fgGHH"
+    props.history.push("/admin/user/" + id);
+ }
+   
+
+
+
     return (
         <Container className={classes.containermt}>
             <Typography variant='h4' className={classes.text_title}>
@@ -34,6 +43,7 @@ function User() {
                         <Button
                              variant="contained"
                              color="primary"
+                             onClick={editUSer}
                             >
                                 <Icon>edit</Icon>
                             </Button>
@@ -58,6 +68,7 @@ function User() {
                         <Button
                              variant="contained"
                              color="primary"
+                             onClick={editUSer}
                             >
                                 <Icon>edit</Icon>
                             </Button>

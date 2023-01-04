@@ -1,7 +1,9 @@
 import { Container, Typography, makeStyles, Grid, Card, CardMedia, Avatar, CardContent, Button } from '@material-ui/core'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./Product.css"
 import { productArray } from '../data/dataProf';
+import { getProducts } from '../../actions/ProductAction';
+import { Pagination } from '@material-ui/lab';
 
 const useStyles = makeStyles({
     button: {
@@ -27,7 +29,34 @@ const useStyles = makeStyles({
 })
 
 
-function Products(props) {
+const Products = (props) => {
+
+    const [requestProducts, setRequestProducts] = useState({
+        pageIndex: 1,
+        pageSize: 2,
+        search: ''
+    })
+
+
+
+   const [pagProduct, setPagProduct] = useState({
+     count: 0,
+     pageIndex: 0,
+     pageSize: 0,
+     pageCount: 0,
+     data: []
+   });
+
+   useEffect(() => {
+     const getListProducts = async () => {
+       const response = await getProducts(requestProducts);
+       console.log(response)
+       setPagProduct(response.data)
+     }
+     getListProducts();
+
+    },[requestProducts])
+
 
 
     const viewProduct = (id) => {
@@ -37,6 +66,10 @@ function Products(props) {
     const classes = useStyles();
     const myArray = productArray;
 
+    if(!pagProduct.data) {
+        return null;
+    }
+
     return (
 
         <>
@@ -44,7 +77,7 @@ function Products(props) {
 
                 <Grid container spacing={12}>
                 
-                    { myArray.map(data => (
+                    { pagProduct.data.map(data => (
  
                    
                     <Grid item lg={4} md={6} sm={8} xs={12} key={data.key} >
@@ -79,9 +112,9 @@ function Products(props) {
                             </div>
                             
 
-                            <div variant="h6" className='name'>{data.title}</div>
+                            <div variant="h6" className='name'>{data.name}</div>
                                 <Button className={classes.button}
-                                 onClick={() => viewProduct(data.key)}
+                                 onClick={() => viewProduct(data.id)}
                                 >
                                     Details
                                 </Button>
@@ -108,6 +141,7 @@ function Products(props) {
                     </Grid> 
                     ))}
                 </Grid>
+                <Pagination count={pagProduct.pageCount} page={pagProduct.pageIndex} onChange={handleChange} />
             </Container>
 
 

@@ -13,6 +13,12 @@ import MenuAdmin from './components/navigation/desktop/MenuAdmin';
 import MenuClient from './components/navigation/desktop/MenuClient';
 import User from './components/views/admin/User';
 import EditUser from './components/views/admin/EditUser';
+import listProducts from './components/views/admin/listProducts';
+import AddProduct from './components/views/admin/AddProduct';
+import EditProduct from './components/views/admin/EditProduct';
+import ListOrders from './components/views/admin/ListOrders';
+import MenuPublic from './components/navigation/desktop/MenuPublic';
+
 
 
 function App() {
@@ -33,6 +39,10 @@ function App() {
           <Route path="/perfil" component={Perfil} />
           <Route path="/admin/users" component={User} />
           <Route path="/admin/user/:id" component={EditUser} />
+          <Route path="/admin/listProducts" component={listProducts} />
+          <Route path="/admin/addproducts" component={AddProduct} />
+          <Route path="/admin/editproducts/:id" component={EditProduct} />
+          <Route path="/admin/listorders" component={ListOrders} />
           <Route path="/" component={Products} />
          </Switch>
       </Router>

@@ -33,7 +33,7 @@ const Products = (props) => {
 
     const [requestProducts, setRequestProducts] = useState({
         pageIndex: 1,
-        pageSize: 2,
+        pageSize: 3,
         search: ''
     })
 
@@ -46,6 +46,14 @@ const Products = (props) => {
      pageCount: 0,
      data: []
    });
+
+   const handleChange = (event, value) => {
+      setRequestProducts( (prev) => ({
+        ...prev,
+        pageIndex: value
+      }));
+   }
+
 
    useEffect(() => {
      const getListProducts = async () => {

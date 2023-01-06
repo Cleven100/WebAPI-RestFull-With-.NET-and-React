@@ -15,6 +15,8 @@ using BusinessLogic.Data;
 using Microsoft.EntityFrameworkCore;
 using Core.Interfaces;
 using WebApi.Dtos;
+using Core.Entities;
+using Microsoft.AspNetCore.Identity;
 
 namespace WebApi
 {
@@ -31,6 +33,16 @@ namespace WebApi
         public void ConfigureServices(IServiceCollection services)
         {
 
+            var builder = services.AddIdentityCore<User>();
+            builder = new IdentityBuilder(builder.UserType, builder.Services);
+
+            builder.AddEntityFrameworkStores<SecurityDbContext>();
+            builder.AddSignInManager<SignInManager<User>>();
+
+            services.AddAuthentication();
+
+
+
             services.AddAutoMapper(typeof(MappingProfiles));
 
             services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericRepository<>)));
@@ -39,6 +51,11 @@ namespace WebApi
             services.AddDbContext<EcommerceDbContext>(opt =>
             {
                 opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+            });
+
+            services.AddDbContext<SecurityDbContext>(x =>
+            {
+                x.UseSqlServer(Configuration.GetConnectionString("IdentitySecurity"));
             });
 
 

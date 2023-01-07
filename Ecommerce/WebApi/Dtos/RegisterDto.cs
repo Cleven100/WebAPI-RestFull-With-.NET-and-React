@@ -1,21 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
 
-namespace Core.Entities
+namespace WebApi.Dtos
 {
-    public class User : IdentityUser
+    public class RegisterDto
     {
+        public string Email { get; set; }
+        public string Username { get; set; }
+
         public string Name { get; set; }
         public string NickName { get; set; }
 
-     
-
-        public Direction Direction { get; set; }
-
-
+        public string Password { get; set; }
     }
 }

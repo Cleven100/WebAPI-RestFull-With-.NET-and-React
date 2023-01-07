@@ -19,6 +19,7 @@ namespace BusinessLogic.Data
                     Name = "Pedro",
                     NickName = "Pedrinho",
                     UserName = "pedr",
+                    Email = "pedr100@gmail.com",
                     Direction = new Direction
                     {
                         Street = "New York 152",
@@ -28,7 +29,7 @@ namespace BusinessLogic.Data
                     }
                 };
 
-               await userManager.CreateAsync(user, "123");
+               await userManager.CreateAsync(user, "HojeTreis1235@1!");
             }
 
 

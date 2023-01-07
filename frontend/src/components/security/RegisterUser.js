@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Avatar, Container, Grid, Icon, Card, makeStyles, Typography, TextField, Button} from '@material-ui/core';
 import "./Login.css"
 import { Link } from 'react-router-dom';
+import { registerUser } from '../../actions/UserAction'
 
 
 const clearUser = {
@@ -9,7 +10,8 @@ const clearUser = {
   name: '',
   nickName: '',
   email: '',
-  password: ''
+  password: '',
+  username: ''
 
 }
 
@@ -82,11 +84,14 @@ const useStyles = makeStyles({
  })
 export default function RegisterUser() {
 
+
+
   const [user, setUser] = useState({
     name: '',
     nickName: '',
     email: '',
-    password: ''
+    password: '',
+    username: ''
   });
 
 
@@ -99,8 +104,13 @@ export default function RegisterUser() {
   }
 
   const saveUser = () => {
-    console.log("My user is", user);
-    setUser(clearUser);
+   // console.log("My user is", user);
+  //  setUser(clearUser); 
+    registerUser(user)
+     .then(response => {
+         console.log('O objeto response que envia ao servidor', response);
+         window.localStorage.setItem('token', response.data.token);
+     });
   }
 
 
@@ -136,6 +146,17 @@ export default function RegisterUser() {
                                  fullWidth
                                  name="nickName"
                                  value={user.nickName}
+                                 onChange={handleChange}
+                                
+                                />
+                           </Grid>
+                           <Grid item md={12} xs={12} className={classes.gridmb}>
+                                <TextField 
+                                 label="Username"
+                                 variant="outlined"
+                                 fullWidth
+                                 name="username"
+                                 value={user.username}
                                  onChange={handleChange}
                                 
                                 />

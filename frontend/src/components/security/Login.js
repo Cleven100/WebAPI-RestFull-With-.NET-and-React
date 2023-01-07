@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Container, Grid, Card, Typography, Avatar, Icon, TextField, Button, makeStyles} from '@material-ui/core';
 import "./Login.css";
 import { Link } from 'react-router-dom'
+import { loginUser } from '../../actions/UserAction';
 
 const useStyles = makeStyles({
     containermet: {
@@ -57,6 +58,37 @@ const useStyles = makeStyles({
 });
 
 export default function Login() {
+
+  const [user, setUser] = useState({
+    email: '',
+    password: ''
+  })
+
+
+  const handleChange = (e) => {
+    const {name, value} = e.target;
+     setUser(prev => ({
+      ...prev,
+       [name]: value
+     }))
+  }
+
+
+
+  const loginEventUser = () => {
+      loginUser(user)
+       .then(response => {
+         if(response.status === 200) {
+                 window.localStorage.setItem('token', response.data.token);
+                 console.log('Login start', response.data);
+         } else {
+           console.log("Login false ruim", response.data)
+         }
+       })
+  }
+
+
+
   const classes = useStyles();
   return (
     <div>
@@ -70,7 +102,7 @@ export default function Login() {
                         <Icon className="icon">person</Icon>
                     </Avatar>
                    <Typography className={classes.typography} variant="h5" color="">Enter username</Typography>
-                   <form className={classes.form}>
+                   <form className={classes.form} onSubmit={(e) => e.preventDefault()}>
                       <Grid container spacing={2}>
                       <Grid item xs={12} className={classes.gridmb}>
                             <TextField  
@@ -79,6 +111,10 @@ export default function Login() {
                               variant='outlined'
                               fullWidth
                               type="email"
+                              name="email"
+                              value={user.email}
+                              onChange={handleChange}
+
                             />
                          </Grid>
 
@@ -89,6 +125,9 @@ export default function Login() {
                               variant='outlined'
                               fullWidth
                               type="password"
+                              name="password"
+                              value={user.password}
+                              onChange={handleChange}
                             />
                          </Grid>
 
@@ -98,7 +137,8 @@ export default function Login() {
                             variant="contained"
                             fullWidth
                            className={classes.button}
-                           href=""
+                           type="submit"
+                           onClick={loginEventUser}
                             >
                                  Enter
                             </Button>

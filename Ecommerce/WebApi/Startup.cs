@@ -17,6 +17,9 @@ using Core.Interfaces;
 using WebApi.Dtos;
 using Core.Entities;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace WebApi
 {
@@ -33,13 +36,26 @@ namespace WebApi
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddScoped<ITokenService, TokenService>();
+
+
             var builder = services.AddIdentityCore<User>();
             builder = new IdentityBuilder(builder.UserType, builder.Services);
 
             builder.AddEntityFrameworkStores<SecurityDbContext>();
             builder.AddSignInManager<SignInManager<User>>();
 
-            services.AddAuthentication();
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+         {
+             options.TokenValidationParameters = new TokenValidationParameters
+             {
+                 ValidateIssuerSigningKey = true,
+                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Token:Key"])),
+                 ValidIssuer = Configuration["Token:Issue"],
+                 ValidateIssuer = true,
+                 ValidateAudience = false
+             };
+         });
 
 
 
@@ -85,6 +101,7 @@ namespace WebApi
 
             app.UseCors("CorsRule");
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

@@ -1,4 +1,5 @@
 using Core.Interface;
+using StackExchange.Redis;
 using BusinessLogic.Logic;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -20,6 +21,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using BusinessLogic.Data;
+
 
 namespace WebApi
 {
@@ -51,7 +54,7 @@ namespace WebApi
              {
                  ValidateIssuerSigningKey = true,
                  IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Token:Key"])),
-                 ValidIssuer = Configuration["Token:Issue"],
+                 ValidIssuer = Configuration["Token:Issuer"],
                  ValidateIssuer = true,
                  ValidateAudience = false
              };
@@ -74,9 +77,19 @@ namespace WebApi
                 x.UseSqlServer(Configuration.GetConnectionString("IdentitySecurity"));
             });
 
+            services.AddSingleton<IConnectionMultiplexer>(c =>
+            {
+
+                var configuration = ConfigurationOptions.Parse(Configuration.GetConnectionString("Redis"), true);
+                return ConnectionMultiplexer.Connect(configuration);
+
+            });
+
 
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddControllers();
+
+            services.AddScoped<ICartRepository, CartRepository>();
 
             services.AddCors(opt =>
             {

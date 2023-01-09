@@ -1,9 +1,24 @@
 import HttpClient from '../services/HttpClient'
+import axios from 'axios'
 
-export const registerUser = user => {
+const instancia = axios.create();
+instancia.CancelToken = axios.CancelToken;
+ instancia.isCancel = axios.isCancel;
+
+export const registerUser = (user, dispatch) => {
     return new Promise((resolve, eject) =>{
-        HttpClient.post("/api/user/register", user)
+        instancia.post("/api/user/register", user)
         .then(response => {
+
+            dispatch({
+                type: "INITIAL_SESSION",
+                session: response.data,
+                authentication: true
+            })
+    
+    
+
+
             resolve(response);
         })
         .catch((error) => {
@@ -13,11 +28,20 @@ export const registerUser = user => {
 }
 
 
-export const loginUser = user => {
+export const loginUser = (user, dispatch) => {
  return new Promise((resolve, eject) =>{
-    HttpClient.post("/api/user/login", user)
+    instancia.post("/api/user/login", user)
      .then(response => {
+
+      
+        dispatch({
+            type: "INITIAL_SESSION",
+            session: response.data,
+            authentication: true
+        })
+
         resolve(response);
+        
      })
       .catch( (error) => {
          resolve(error.response);
@@ -26,14 +50,23 @@ export const loginUser = user => {
 }
 
 
-export const getUser = () => {
+export const getUser = (dispatch) => {
    return new Promise((resolve, eject) => {
-        HttpClient.get("/api/user")
-         .then(response => {
-            resolve(response);
-         }).catch(error => {
-            resolve(error.resolve);
-         })
+    HttpClient.get("/api/user")
+       .then(response => {
+
+          dispatch({
+            type: "INITIAL_SESSION",
+            session: response.data,
+            authentication: true
+          })
+
+
+        resolve(response)
+       })
+       .catch(error => {
+          resolve(error.response);
+       })
            
    })
 }

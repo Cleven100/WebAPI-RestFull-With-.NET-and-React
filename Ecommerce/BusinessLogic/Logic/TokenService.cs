@@ -35,6 +35,7 @@ namespace BusinessLogic.Logic
                 new Claim(JwtRegisteredClaimNames.Email, user.Email),
                 new Claim(JwtRegisteredClaimNames.Name, user.Name),
                 new Claim(JwtRegisteredClaimNames.FamilyName, user.NickName),
+                new Claim(JwtRegisteredClaimNames.Email, user.Email),
                 new Claim("username", user.UserName),
             };
 

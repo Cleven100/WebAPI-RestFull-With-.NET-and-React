@@ -25,9 +25,9 @@ namespace WebApi.Extensions
         {
             var email = usr?.Claims?.FirstOrDefault(x => x.Type == ClaimTypes.Email)?.Value;
 
-            var user = await input.Users.SingleOrDefaultAsync(x => x.Email == email);
+            var users = await input.Users.SingleOrDefaultAsync();
 
-            return user;
+            return users;
 
         }
 

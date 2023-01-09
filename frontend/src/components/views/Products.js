@@ -58,7 +58,6 @@ const Products = (props) => {
    useEffect(() => {
      const getListProducts = async () => {
        const response = await getProducts(requestProducts);
-       console.log(response)
        setPagProduct(response.data)
      }
      getListProducts();

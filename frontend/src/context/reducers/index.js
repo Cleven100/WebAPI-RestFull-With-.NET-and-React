@@ -1,11 +1,12 @@
-import openSnackbarReducer from "./openSnackbarReducer"
-import sesionCarritoCompraReducer from "./sesionCarritoCompraReducer"
-import sesionUsuarioReducer from "./sesionUsuarioReducer"
+import sessionCartReducer from "./sessionCartReducer"
+import { sessionUserReducer } from "./sessionUserReducer"
 
-export const mainReducer = (  {sesionUsuario, sesionCarritoCompra, openSnackbar}, action  ) => {
-    return {
-        sesionUsuario: sesionUsuarioReducer(sesionUsuario, action),
-        sesionCarritoCompra: sesionCarritoCompraReducer(sesionCarritoCompra, action),
-        openSnackbar: openSnackbarReducer(openSnackbar, action)
-    }
+
+
+
+export const mainReducer = ({sessionUser, sessionCart}, action) =>{
+      return {
+        sessionUser: sessionUserReducer(sessionUser, action),
+        sessionCart:  sessionCartReducer(sessionCart, action)
+      }
 }

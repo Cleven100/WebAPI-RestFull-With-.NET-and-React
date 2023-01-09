@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import Login from './components/security/Login';
 import RegisterUser from './components/security/RegisterUser';
 import MenuAppBar from './components/navigation/MenuAppBar';
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Products from './components/views/Products';
 import detailsProduct from './components/views/detailsProduct';
 import cart from './components/views/Cart';
@@ -18,18 +18,44 @@ import AddProduct from './components/views/admin/AddProduct';
 import EditProduct from './components/views/admin/EditProduct';
 import ListOrders from './components/views/admin/ListOrders';
 import MenuPublic from './components/navigation/desktop/MenuPublic';
+import { getUser } from './actions/UserAction';
+import { useStateValue } from './context/store';
 
 
 
 function App() {
 
+  const [{ sessionUser }, dispatch] = useStateValue();
+
+  const [servidorResponse, setServidorResponse] = useState(false);
+
+
+  useEffect(() => {
+
+
+    if (!servidorResponse) {
+
+      getUser(dispatch).then(response => {
+        
+        setServidorResponse(true)
+        console.log('state the sessison', response);
+      })
+
+    }
+
+
+
+  }, [servidorResponse])
+
+
+
 
   return (
     <div>
       <Router>
-         <MenuAppBar/>
-         <Switch>
-          
+        <MenuAppBar />
+        <Switch>
+
           <Route exact path="/login" component={Login} />
           <Route path="/register" component={RegisterUser} />
           <Route path="/details/:id" component={detailsProduct} />
@@ -44,14 +70,14 @@ function App() {
           <Route path="/admin/editproducts/:id" component={EditProduct} />
           <Route path="/admin/listorders" component={ListOrders} />
           <Route path="/" component={Products} />
-         </Switch>
+        </Switch>
       </Router>
-    
-     
-    
+
+
+
     </div>
 
-    
+
   );
 }
 

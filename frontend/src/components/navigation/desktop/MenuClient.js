@@ -2,8 +2,12 @@ import { Avatar, Button, Icon, ListItemIcon, ListItemText, Menu, MenuItem } from
 import React, { useState } from 'react'
 import useStyles from '../../theme/useStyles';
 import { Link } from 'react-router-dom';
+import { useStateValue } from '../../../context/store';
 
 function MenuClient() {
+
+    const [{sessionUser}, dispatch] = useStateValue();
+
     const classes = useStyles();
 
      const [anchorEl, setAnchorEl] = useState(null);
@@ -41,7 +45,9 @@ function MenuClient() {
                 src=""
                 
                 />
-                John
+                {sessionUser 
+                ? (sessionUser.authentication ?  sessionUser.user.name  : "undefined1" )
+                : "undefined2"}
                 <Icon>keyboard_arrow_down</Icon>
             </div>
         </Button>

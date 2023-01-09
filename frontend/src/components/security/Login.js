@@ -3,6 +3,7 @@ import { Container, Grid, Card, Typography, Avatar, Icon, TextField, Button, mak
 import "./Login.css";
 import { Link } from 'react-router-dom'
 import { loginUser } from '../../actions/UserAction';
+import { useStateValue } from '../../context/store';
 
 const useStyles = makeStyles({
     containermet: {
@@ -57,7 +58,9 @@ const useStyles = makeStyles({
    
 });
 
-export default function Login() {
+export default function Login(props) {
+
+  const [{sessionUser}, dispatch] = useStateValue();
 
   const [user, setUser] = useState({
     email: '',
@@ -76,11 +79,12 @@ export default function Login() {
 
 
   const loginEventUser = () => {
-      loginUser(user)
+      loginUser(user, dispatch)
        .then(response => {
          if(response.status === 200) {
                  window.localStorage.setItem('token', response.data.token);
                  console.log('Login start', response.data);
+                 props.history.push('/');
          } else {
            console.log("Login false ruim", response.data)
          }

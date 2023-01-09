@@ -3,6 +3,7 @@ import { Avatar, Container, Grid, Icon, Card, makeStyles, Typography, TextField,
 import "./Login.css"
 import { Link } from 'react-router-dom';
 import { registerUser } from '../../actions/UserAction'
+import { useStateValue } from '../../context/store';
 
 
 const clearUser = {
@@ -82,7 +83,9 @@ const useStyles = makeStyles({
   }
        
  })
-export default function RegisterUser() {
+export default function RegisterUser(props) {
+
+  const [{userSession}, dispatch] = useStateValue()
 
 
 
@@ -104,10 +107,10 @@ export default function RegisterUser() {
   }
 
   const saveUser = () => {
-   // console.log("My user is", user);
-  //  setUser(clearUser); 
-    registerUser(user)
+  
+    registerUser(user, dispatch)
      .then(response => {
+         props.history.push('/');
          console.log('O objeto response que envia ao servidor', response);
          window.localStorage.setItem('token', response.data.token);
      });

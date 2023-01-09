@@ -23,6 +23,7 @@ namespace WebApi.Controllers
         private readonly ITokenService _tokenService;
         private readonly IMapper _mapper;
 
+        
         public UserController(UserManager<User> userManager, SignInManager<User> signInManager, ITokenService tokenService, IMapper mapper)
         {
             _signInManager = signInManager;
@@ -38,6 +39,7 @@ namespace WebApi.Controllers
         {
 
             var user = await _userManager.FindByEmailAsync(loginDto.Email);
+           
 
             if (User == null)
             {
@@ -54,7 +56,7 @@ namespace WebApi.Controllers
             return new UserDto
             {
                 Email = user.Email,
-                Username = user.UserName,
+                UserName = user.UserName,
                 Token = _tokenService.CreateToken(user),
                 Name = user.Name,
                 NickName = user.NickName
@@ -85,7 +87,7 @@ namespace WebApi.Controllers
                 NickName = user.NickName,
                 Token = _tokenService.CreateToken(user),
                 Email = user.Email,
-                Username = user.UserName
+                UserName = user.UserName
             };
         }
 
@@ -94,19 +96,19 @@ namespace WebApi.Controllers
         [HttpGet]
         public async Task<ActionResult<UserDto>> GetUser()
         {
-            //  var email = HttpContext.User?.Claims?.FirstOrDefault(x => x.Type == ClaimTypes.Email)?.Value;
 
-            // var user = await _userManager.FindByEmailAsync(email);
+           var email =  HttpContext.User?.Claims?.FirstOrDefault(x => x.Type == ClaimTypes.Email)?.Value;
+           var user = await _userManager.FindByEmailAsync(email);
 
-            var user = await _userManager.SearchUserAsync(HttpContext.User);
 
             return new UserDto
             {
+                
                 Name = user.Name,
                 NickName = user.NickName,
                 Email = user.Email,
-                Username = user.UserName,
-                Token = _tokenService.CreateToken(user)
+                UserName = user.UserName,
+                Token = _tokenService.CreateToken(user),
             };
         }
 
@@ -114,7 +116,7 @@ namespace WebApi.Controllers
         [HttpGet("emailvalid")]
         public async Task<ActionResult<bool>> ValidarEmail([FromQuery] string email)
         {
-            var user = _userManager.FindByEmailAsync(email);
+            var user = await _userManager.FindByEmailAsync(email);
 
             if (user == null) return false;
 

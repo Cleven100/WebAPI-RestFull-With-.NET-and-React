@@ -11,7 +11,7 @@ const sessionCartReducer = (state = initialState, action) => {
          return {
             ...state,
             id: action.id,
-            items: action.item
+            item: action.item
          };
          default: return state;
     }

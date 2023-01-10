@@ -1,17 +1,24 @@
-import { Button, CardMedia, Container, Divider, Grid, Icon, IconButton, MenuItem, Paper, Table, TableBody, TableCell, TableContainer, TableRow, TextField, Typography, makeStyles } from '@material-ui/core'
+import { Button, CardMedia, Container, Divider, Grid, Icon, IconButton, MenuItem, Paper, Select, Table, TableBody, TableCell, TableContainer, TableRow, TextField, Typography, makeStyles } from '@material-ui/core'
 import React from 'react'
 import { productArray } from '../data/dataProf'
 
 
 import useStyles from '../theme/useStyles';
 import { Link } from 'react-router-dom';
+import { useStateValue } from '../../context/store';
 
 
 function Cart() {
 
-   
+    const [{sessionCart}, dispatch] = useStateValue();
 
-    const myArray = productArray;
+   console.log('sessionCart', sessionCart);
+
+    const myArray = sessionCart ? sessionCart.item : [];
+    let suma = 0;
+    myArray.forEach(prod => {
+        suma += prod.price
+    });
 
     const classes = useStyles();
 
@@ -26,7 +33,7 @@ function Cart() {
                         <Table>
                             <TableBody>
                                 {myArray.map(product => (
-                                    <TableRow key={product.key}>
+                                    <TableRow key={product.id}>
                                         <TableCell>
                                             <CardMedia
                                             title="image"
@@ -35,28 +42,18 @@ function Cart() {
                                         </TableCell>
                                         <TableCell>
                                             <Typography className={classes.text_details}>
-                                                {product.title}
+                                                {product.name}
                                             </Typography>
                                         </TableCell>
                                         <TableCell>
-                                            <Typography>
+                                        <Typography>
                                                 $ {product.price}
                                             </Typography>
                                         </TableCell>
                                         <TableCell>
-                                            <TextField
-                                                select
-                                                variant="outlined"
-                                                size="small">
-
-                                                <MenuItem value={1}>1</MenuItem>
-                                                <MenuItem value={2}>2</MenuItem>
-                                                <MenuItem value={3}>3</MenuItem>
-                                                <MenuItem value={4}>4</MenuItem>
-                                                <MenuItem value={5}>5</MenuItem>
-                                                <MenuItem value={6}>6</MenuItem>
-
-                                            </TextField>
+                                        <Typography>
+                                                
+                                            </Typography>
                                             
                                         </TableCell><TableCell>
                                                 <IconButton>
@@ -75,7 +72,7 @@ function Cart() {
                         SubTotal: ({myArray.length}) Products
                     </Typography>
                     <Typography className={classes.text_title}>
-                        $143.46
+                        ${Math.round(suma * 100) / 100}
                     </Typography>
                     <Divider  className={classes.gridmb}   />
                     <p style={{visibility: "hidden"}}> L </p>

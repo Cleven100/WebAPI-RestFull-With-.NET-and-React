@@ -20,6 +20,8 @@ import ListOrders from './components/views/admin/ListOrders';
 import MenuPublic from './components/navigation/desktop/MenuPublic';
 import { getUser } from './actions/UserAction';
 import { useStateValue } from './context/store';
+import { getCart } from './actions/CartAction';
+import { v4 as uuidv4} from 'uuid'
 
 
 
@@ -30,18 +32,28 @@ function App() {
   const [servidorResponse, setServidorResponse] = useState(false);
 
 
-  useEffect(() => {
+  useEffect( async () => {
+
+      let cartId = window.localStorage.getItem('cart');
+
+     if(!cartId) {
+       cartId =  uuidv4();
+       window.localStorage.setItem('cart', cartId);
+     }
 
 
     if (!servidorResponse) {
 
-      getUser(dispatch).then(response => {
+   
+     await getUser(dispatch);
+     await getCart(dispatch, cartId)
+     setServidorResponse(true)
+       
         
-        setServidorResponse(true)
-        console.log('state the sessison', response);
-      })
+      
 
-    }
+      
+    } 
 
 
 

@@ -14,7 +14,7 @@ using WebApi.Erros;
 
 namespace WebApi.Controllers
 {
-    
+
     public class ProductController : BaseApiController
     {
         private readonly IGenericRepository<Product> _productRepository;
@@ -28,7 +28,7 @@ namespace WebApi.Controllers
 
 
         [HttpGet]
-        public async Task<ActionResult<Pagination<ProductDtos>>> GetProducts([FromQuery]ProductSpecificationParams productParams)
+        public async Task<ActionResult<Pagination<ProductDtos>>> GetProducts([FromQuery] ProductSpecificationParams productParams)
         {
             var spec = new ProductWithCategoryAndBrandSpecification(productParams);
 
@@ -56,7 +56,7 @@ namespace WebApi.Controllers
                 }
 
 
-                ) ;
+                );
         }
 
 
@@ -68,12 +68,38 @@ namespace WebApi.Controllers
             var spec = new ProductWithCategoryAndBrandSpecification(id);
             var product = await _productRepository.GetByIdWithSpec(spec);
 
-            if(product == null)
+            if (product == null)
             {
                 return NotFound(new CodeErrorResponse(404));
             }
 
-           return _mapper.Map<Product, ProductDtos>(product);
+            return _mapper.Map<Product, ProductDtos>(product);
+        }
+
+
+        [HttpPost]
+        public async Task<ActionResult<Product>> Post(Product product)
+        {
+            var result = await _productRepository.Add(product);
+
+            if (result == 0)
+            {
+                throw new Exception("Product not found");
+            }
+            return Ok(product);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult<Product>> Put(int id, Product product)
+        {
+            product.Id = id;
+            var result = await _productRepository.Update(product);
+
+            if (result == 0)
+            {
+                throw new Exception("Product not found");
+            }
+            return Ok(product);
         }
 
     }

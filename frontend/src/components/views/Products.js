@@ -4,6 +4,8 @@ import "./Product.css"
 import { productArray } from '../data/dataProf';
 import { getProducts } from '../../actions/ProductAction';
 import { Pagination } from '@material-ui/lab';
+import { addItem } from '../../actions/CartAction';
+import { useStateValue } from '../../context/store';
 
 const useStyles = makeStyles({
     button: {
@@ -30,6 +32,11 @@ const useStyles = makeStyles({
 
 
 const Products = (props) => {
+
+
+
+    const [ {sessionCart}, dispatch] = useStateValue();
+
 
     const [requestProducts, setRequestProducts] = useState({
         pageIndex: 1,
@@ -67,8 +74,14 @@ const Products = (props) => {
 
 
     const viewProduct = (id) => {
-     props.history.push("./details/" + id);
-    }
+        props.history.push("./details/" + id);
+       }
+
+       const addCart = async (item) => {
+       
+         await addItem(sessionCart, item, dispatch)
+
+       }
 
     const classes = useStyles();
     const myArray = productArray;
@@ -125,7 +138,9 @@ const Products = (props) => {
                                 >
                                     Details
                                 </Button>
-                                <Button className={classes.buttons}>
+                                <Button className={classes.buttons}
+                                 onClick={() => addCart(data)}
+                                >
                                     Buy
                                 </Button>
                              <div className='price'>

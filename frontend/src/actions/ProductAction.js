@@ -17,5 +17,17 @@ export const getProducts = (requestProducts) => {
 };
 
 
+export const getProduct = id => {
+    return new Promise((resolve, eject) => {
+        instancia.get(`/api/product/${id}`)
+        .then(response => {
+            resolve(response);
+        })
+         .catch(error => {
+            resolve(error.response);
+         });
+    });
+
+}
 
 

@@ -118,11 +118,12 @@ const useStyles = makeStyles({
         marginBottom: 8
     },
     PaperImg : {
-        backgroundColor: "#F2F2F2"
+        backgroundColor: "#F2F2F2",
+       
     },
-    mediaDetalle : {
-        width: 380,
-        height: 380,
+    mediaDetails : {
+        width: 580,
+        height: 400,
         margin: "auto"
     },
     text_detalle: {

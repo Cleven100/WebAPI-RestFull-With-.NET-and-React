@@ -1,3 +1,4 @@
+import { uploadImage } from '../firebase';
 import HttpClient from '../services/HttpClient'
 import axios from 'axios'
 
@@ -5,6 +6,22 @@ const instancia = axios.create();
 instancia.CancelToken = axios.CancelToken;
  instancia.isCancel = axios.isCancel;
 
+
+ export const registerProduct = async (product) => {
+
+    const urlImage = await uploadImage(product.file);
+    product.image = urlImage
+
+    return new Promise((resolve, eject) => {
+        HttpClient.post("/api/product", product)
+         .then(response => {
+            resolve(response);
+         })
+          .catch(error => {
+            resolve(error.response);
+          })
+    })
+ }
 
 export const getProducts = (requestProducts) => {
    

@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, Container, Grid, Icon, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, makeStyles } from '@material-ui/core'
 import { productArray } from '../../data/dataProf';
+import { getProducts } from '../../../actions/ProductAction';
+import { Pagination } from '@material-ui/lab';
 
 const Styles = makeStyles({
     containermt: {
@@ -332,7 +334,41 @@ const Styles = makeStyles({
 
 
 
-const listProducts = (props) => {
+const ListProducts = (props) => {
+ 
+    
+    const [requestProducts, setRequestProducts] = useState({
+        pageIndex: 1,
+        pageSize: 4,
+        search: ''
+    });
+    
+
+    const [pagProducts, setPagProducts] = useState({
+        count: 0,
+        pageIndex: 0,
+        pageSize: 0,
+        data: []
+    });
+
+    const handleChange = (event, value) => {
+        setRequestProducts((prev) => ({
+            ...prev,
+            pageIndex: value
+        }))
+    }
+
+    useEffect(() => {
+  
+        const getListProducts = async () => {
+           const response = await getProducts(requestProducts);
+           setPagProducts(response.data)
+        }
+
+        getListProducts();
+
+    }, [requestProducts])
+
 
     const classes = Styles();
 
@@ -345,7 +381,7 @@ const listProducts = (props) => {
     }
 
 
-    const products = productArray
+  
 
 
     return (
@@ -380,17 +416,17 @@ const listProducts = (props) => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {products.map((product) => (
-                            <TableRow key={product.key}>
-                                <TableCell>{product.key}</TableCell>
-                                <TableCell>{product.title}</TableCell>
+                        {pagProducts.data.map((product) => (
+                            <TableRow key={product.id}>
+                                <TableCell>{product.id}</TableCell>
+                                <TableCell>{product.name}</TableCell>
                                 <TableCell>{product.price}</TableCell>
-                                <TableCell>{product.brand}</TableCell>
+                                <TableCell>{product.brandName}</TableCell>
                                 <TableCell>
                                 <Button
                                     variant="contained"
                                     color="primary"
-                                    onClick={() => editProduct(product.key)}
+                                    onClick={() => editProduct(product.id)}
                                     >
                                         <Icon>edit</Icon>
                                     </Button>
@@ -408,9 +444,10 @@ const listProducts = (props) => {
 
                 </Table>
             </TableContainer>
-
+             <Pagination count={pagProducts.count} page={pagProducts.pageIndex} onChange={handleChange}></Pagination>
+             
         </Container>
     )
 }
 
-export default listProducts
+export default ListProducts

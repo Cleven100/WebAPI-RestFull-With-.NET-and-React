@@ -73,7 +73,7 @@ const useStyles = makeStyles({
       textDecoration: "none",
       },
       mediaDetails: {
-        width: 380,
+        width: 580,
         height: 380,
         margin: "auto",
         backgroundColor: "#FFF" ,
@@ -172,10 +172,10 @@ const DetailsProduct = (props) => {
             </Typography>
             <Grid container spacing={4}>
             <Grid item lg={8} md={8} xs={12}>
-                    <Paper variant="outlined" square className={classes.paper}>
+                    <Paper variant="outlined" square className={classes.paperImg}>
                          <CardMedia 
                          className={classes.mediaDetails}
-                          image=""
+                          image={productSelect.image}
                           title={productSelect.descripton}
                          
                          />

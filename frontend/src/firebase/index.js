@@ -42,3 +42,5 @@ const firebaseConfig = {
       );
     });
   };
+
+  export default uploadImage;

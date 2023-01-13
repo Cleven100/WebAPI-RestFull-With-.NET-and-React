@@ -28,16 +28,24 @@ namespace BusinessLogic.Logic
         }
 
 
-        public string CreateToken(User user)
+        public string CreateToken(User user, IList<string> roles)
         {
             var claims = new List<Claim>
             {
                 new Claim(JwtRegisteredClaimNames.Email, user.Email),
                 new Claim(JwtRegisteredClaimNames.Name, user.Name),
                 new Claim(JwtRegisteredClaimNames.FamilyName, user.NickName),
-                new Claim(JwtRegisteredClaimNames.Email, user.Email),
                 new Claim("username", user.UserName),
             };
+
+            if(roles != null && roles.Count > 0)
+            {
+                foreach (var role in roles)
+                {
+                    claims.Add(new Claim(ClaimTypes.Role, role));
+                }
+            }
+
 
             var credentials = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512Signature);
 
@@ -55,5 +63,7 @@ namespace BusinessLogic.Logic
             return tokenHandler.WriteToken(token);
 
         }
+
+       
     }
 }

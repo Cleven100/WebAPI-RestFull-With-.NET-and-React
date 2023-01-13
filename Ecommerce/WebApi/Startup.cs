@@ -22,7 +22,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using BusinessLogic.Data;
-
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace WebApi
 {
@@ -43,7 +44,9 @@ namespace WebApi
 
 
             var builder = services.AddIdentityCore<User>();
+
             builder = new IdentityBuilder(builder.UserType, builder.Services);
+            builder.AddRoles<IdentityRole>();
 
             builder.AddEntityFrameworkStores<SecurityDbContext>();
             builder.AddSignInManager<SignInManager<User>>();
@@ -65,6 +68,7 @@ namespace WebApi
             services.AddAutoMapper(typeof(MappingProfiles));
 
             services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericRepository<>)));
+            services.AddScoped(typeof(IGenericSecurityRepository<>), (typeof(GenericSecurityRepository<>)));
 
 
             services.AddDbContext<EcommerceDbContext>(opt =>
@@ -84,6 +88,8 @@ namespace WebApi
                 return ConnectionMultiplexer.Connect(configuration);
 
             });
+
+            services.TryAddSingleton<ISystemClock, SystemClock>();
 
 
             services.AddTransient<IProductRepository, ProductRepository>();

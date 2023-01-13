@@ -22,12 +22,13 @@ import { getUser } from './actions/UserAction';
 import { useStateValue } from './context/store';
 import { getCart } from './actions/CartAction';
 import { v4 as uuidv4} from 'uuid'
+import { Snackbar } from '@material-ui/core';
 
 
 
 function App() {
 
-  const [{ sessionUser }, dispatch] = useStateValue();
+  const [{ sessionUser, openSnackbar }, dispatch] = useStateValue();
 
   const [servidorResponse, setServidorResponse] = useState(false);
 
@@ -64,6 +65,28 @@ function App() {
 
   return (
     <div>
+      <Snackbar
+      anchorOrigin={{vertical: "bottom", horizontaol:"center"}}
+      open = {openSnackbar ? openSnackbar.open : false}
+      autoHideDuration={3000}
+      ContentProps={{"aria-describedby" : "message-id"}}
+      message={
+        <span id="message-id">
+          {openSnackbar ? openSnackbar.message : ""}
+        </span>
+      }
+      onClose={() => 
+        dispatch({
+          type: "OPEN_SNACKBAR",
+          openMessage: {
+            open: false,
+            message: ""
+          }
+        })
+      }
+      >
+
+      </Snackbar>
       <Router>
         <MenuAppBar />
         <Switch>

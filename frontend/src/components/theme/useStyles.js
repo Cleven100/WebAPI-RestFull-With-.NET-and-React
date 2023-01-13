@@ -247,8 +247,8 @@ const useStyles = makeStyles({
         float : "right"
     },
    
-    avatarProducto : {
-        width: 175, 
+    avatarProduct : {
+        width: 250, 
         height: 175,
         backgroundColor: "#F2F2F2" 
     },

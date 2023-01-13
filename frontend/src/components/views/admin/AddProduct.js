@@ -6,7 +6,7 @@ import { registerProduct } from '../../../actions/ProductAction';
 import {v4 as uuidv4} from 'uuid';
 
 
-const AddProduct = () => {
+const AddProduct = (props) => {
 
     const [product, setProduct] = useState({
        
@@ -18,7 +18,8 @@ const AddProduct = () => {
         categoryId: 0,
         price: 0,
         image: '',
-        file: ''
+        file: '',
+        
 
 
     });
@@ -41,7 +42,8 @@ const AddProduct = () => {
     product.categoryId = category;
     product.brandId = brand;
     const result = await registerProduct(product)
-    console.log('result in save', result);
+    
+    props.history.push("/admin/listproducts")
  }
 
 

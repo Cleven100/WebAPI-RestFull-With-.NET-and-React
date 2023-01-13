@@ -34,16 +34,16 @@ namespace BusinessLogic.Logic
 
         public async Task<T> GetByIdWithSpec(ISpecification<T> spec)
         {
-          return await  ApplySpecification(spec).FirstOrDefaultAsync();
+            return await ApplySpecification(spec).FirstOrDefaultAsync();
         }
         public async Task<IReadOnlyList<T>> GetAllWithSpec(ISpecification<T> spec)
         {
-          return await  ApplySpecification(spec).ToListAsync();
+            return await ApplySpecification(spec).ToListAsync();
         }
 
         private IQueryable<T> ApplySpecification(ISpecification<T> spec)
         {
-          return  SpecificationEvaluator<T>.GetQuery(_context.Set<T>().AsQueryable(), spec);
+            return SpecificationEvaluator<T>.GetQuery(_context.Set<T>().AsQueryable(), spec);
         }
 
         public async Task<int> CountAsync(ISpecification<T> spec)
@@ -54,7 +54,7 @@ namespace BusinessLogic.Logic
         public async Task<int> Add(T entity)
         {
             _context.Set<T>().Add(entity);
-           return    await _context.SaveChangesAsync();
+            return await _context.SaveChangesAsync();
         }
 
         public async Task<int> Update(T entity)

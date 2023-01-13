@@ -14,6 +14,8 @@ namespace Core.Entities
 
         public Direction Direction { get; set; }
 
+        public string Image { get; set; }
+
 
     }
 }

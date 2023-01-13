@@ -31,9 +31,10 @@ namespace WebApi
                     await EcommerceDbContextData.loadDataAsync(context, loggerFactory);
 
                     var userManager = services.GetRequiredService<UserManager<User>>();
+                    var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
                     var identityContext = services.GetRequiredService<SecurityDbContext>();
                     await identityContext.Database.MigrateAsync();
-                    await SecurityDbContextData.SeedUserAsync(userManager);
+                    await SecurityDbContextData.SeedUserAsync(userManager, roleManager);
                 }
                 catch (Exception e)
                 {

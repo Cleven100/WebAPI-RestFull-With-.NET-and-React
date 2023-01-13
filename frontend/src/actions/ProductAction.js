@@ -7,11 +7,39 @@ instancia.CancelToken = axios.CancelToken;
  instancia.isCancel = axios.isCancel;
 
 
+ export const updateProduct = async (id, product) =>{
+     
+    if(product.file) {
+            const urlImage = await uploadImage(product.file);
+            product.image = urlImage;
+          }
+    
+    return new Promise( (resolve, eject) => {
+        
+     
+
+     HttpClient.put(`api/product/${id}`, product)
+      .then(response => {
+        resolve(response)
+      }) 
+        .catch(error => {
+            resolve(error.response);
+        })
+
+       });
+ }
+
+
+
  export const registerProduct = async (product) => {
 
-    const urlImage = await uploadImage(product.file);
-    product.image = urlImage
+    if(product.file) {
+        const urlImage = await uploadImage(product.file);
+        product.image = urlImage;
+      }
 
+
+    
     return new Promise((resolve, eject) => {
         HttpClient.post("/api/product", product)
          .then(response => {

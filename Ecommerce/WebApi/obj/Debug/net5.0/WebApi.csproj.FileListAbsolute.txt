@@ -64,8 +64,8 @@ C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-
 C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-and-React\Ecommerce\WebApi\bin\Debug\net5.0\AutoMapper.dll
 C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-and-React\Ecommerce\WebApi\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-and-React\Ecommerce\WebApi\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-and-React\Ecommerce\WebApi\obj\Debug\net5.0\WebApi.csprojAssemblyReference.cache
 C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-and-React\Ecommerce\WebApi\bin\Debug\net5.0\Pipelines.Sockets.Unofficial.dll
 C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-and-React\Ecommerce\WebApi\bin\Debug\net5.0\StackExchange.Redis.dll
 C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-and-React\Ecommerce\WebApi\bin\Debug\net5.0\System.Diagnostics.PerformanceCounter.dll
 C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-and-React\Ecommerce\WebApi\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.0\System.Diagnostics.PerformanceCounter.dll
+C:\Users\Cleven-PC\Desktop\ProjetosGit\Asp.net\WebAPI\WebAPI-RestFull-With-.NET-and-React\Ecommerce\WebApi\obj\Debug\net5.0\WebApi.csproj.AssemblyReference.cache

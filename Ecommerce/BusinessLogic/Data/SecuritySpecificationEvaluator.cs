@@ -1,5 +1,5 @@
-﻿using Core.Entities;
-using Core.Specifications;
+﻿using Core.Specifications;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic.Data
 {
-    public class SpecificationEvaluator<T> where T : ClassBase
+    public class SecuritySpecificationEvaluator<T> where T : IdentityUser 
     {
         public static IQueryable<T> GetQuery(IQueryable<T> inputQuery, ISpecification<T> spec)
         {

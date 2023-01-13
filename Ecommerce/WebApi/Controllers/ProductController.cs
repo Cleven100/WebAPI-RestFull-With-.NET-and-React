@@ -3,6 +3,7 @@ using Core.Entities;
 using Core.Interface;
 using Core.Interfaces;
 using Core.Specifications;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -31,15 +32,12 @@ namespace WebApi.Controllers
         public async Task<ActionResult<Pagination<ProductDtos>>> GetProducts([FromQuery] ProductSpecificationParams productParams)
         {
             var spec = new ProductWithCategoryAndBrandSpecification(productParams);
-
             var products = (await _productRepository.GetAllWithSpec(spec));
 
             var specCount = new ProductForCountingSpecification(productParams);
-
             var totalProducts = await _productRepository.CountAsync(specCount);
 
             var rounded = Math.Ceiling(Convert.ToDecimal(totalProducts / productParams.PageSize));
-
             var totalPages = Convert.ToInt32(rounded);
 
             var data = _mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductDtos>>(products);
@@ -76,7 +74,7 @@ namespace WebApi.Controllers
             return _mapper.Map<Product, ProductDtos>(product);
         }
 
-
+        [Authorize(Roles = "ADMIN")]
         [HttpPost]
         public async Task<ActionResult<Product>> Post(Product product)
         {
@@ -89,6 +87,8 @@ namespace WebApi.Controllers
             return Ok(product);
         }
 
+
+        [Authorize(Roles = "ADMIN")]
         [HttpPut("{id}")]
         public async Task<ActionResult<Product>> Put(int id, Product product)
         {

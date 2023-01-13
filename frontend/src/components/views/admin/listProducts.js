@@ -339,7 +339,7 @@ const ListProducts = (props) => {
     
     const [requestProducts, setRequestProducts] = useState({
         pageIndex: 1,
-        pageSize: 4,
+        pageSize: 7,
         search: ''
     });
     
@@ -444,7 +444,9 @@ const ListProducts = (props) => {
 
                 </Table>
             </TableContainer>
-             <Pagination count={pagProducts.count} page={pagProducts.pageIndex} onChange={handleChange}></Pagination>
+             <Pagination count={Math.ceil(pagProducts.count / 7)} onChange={handleChange}>
+               {console.log(pagProducts.count)}
+             </Pagination>
              
         </Container>
     )

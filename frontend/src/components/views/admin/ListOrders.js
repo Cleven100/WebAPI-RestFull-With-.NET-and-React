@@ -7,36 +7,6 @@ const ListOrders = (props) => {
 
 
 
-    const [requestProducts, setRequestProducts] = useState({
-        pageIndex: 1,
-        pageSize: 4,
-        search: ''
-    });
-
-    const [pagProducts, setPagProducts] = useState({
-        count: 0,
-        pageIndex: 0,
-        pageSize: 0,
-        data: []
-    });
-
-    const handleChange = (event, value) => {
-        setRequestProducts((prev) => ({
-            ...prev,
-            pageIndex: value
-        }))
-    }
-
-    useEffect(() => {
-  
-        const getListProducts = async () => {
-           const response = await getProducts(requestProducts);
-           setPagProducts(response.data)
-        }
-
-        getListProducts();
-
-    }, [requestProducts])
 
 
 
